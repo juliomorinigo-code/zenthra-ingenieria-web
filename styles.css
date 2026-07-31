@@ -21,3 +21,20 @@ footer{background:#061523;color:#fff;padding:70px clamp(24px,8vw,130px) 30px;dis
 @media(max-width:900px){nav{display:none}.buttonSmall{display:none}.hero{grid-template-columns:1fr;padding-top:80px}.heroPanel{display:none}.intro,.quote,.sectionHeading.split{grid-template-columns:1fr;gap:35px}.serviceGrid{grid-template-columns:repeat(2,1fr)}.stepGrid{grid-template-columns:repeat(2,1fr)}.projectGrid{grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,250px)}.quoteOptions a{grid-template-columns:1fr}.quoteOptions b{grid-column:1;grid-row:3;margin-top:10px}footer{grid-template-columns:1fr 1fr}.footerBrand{grid-column:1/-1}}
 @media(max-width:580px){.siteHeader{height:68px;padding:0 18px}.brand{width:94px;height:60px;padding:3px 6px}.brand img{width:78px;height:54px}.hero{min-height:610px;padding:70px 22px}.heroLead{font-size:15px}.heroActions{align-items:flex-start;flex-direction:column}.section{padding:72px 22px}.intro{gap:35px}.serviceGrid{grid-template-columns:1fr}.serviceCard{min-height:220px}.stepGrid{grid-template-columns:1fr}.stepGrid article,.stepGrid article:not(:first-child){padding:25px 0;border-right:0;border-bottom:1px solid #ffffff20}.projectGrid{display:grid;grid-template-columns:1fr;grid-template-rows:repeat(6,220px)}.quote h2{font-size:43px}.quote{gap:40px}.quoteOptions strong{font-size:13px;word-break:break-word}footer{grid-template-columns:1fr;gap:35px}.footerBrand{grid-column:auto;width:188px;min-height:142px;padding:10px 13px}.footerBrand img{width:158px;height:118px}.copyright{grid-column:auto}.whatsappFloat{right:18px;bottom:18px;width:56px;height:56px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+/* Animaciones Zenthra — inspiradas en interacciones industriales modernas */
+.siteHeader{transition:height .35s ease,box-shadow .35s ease,background .35s ease}
+.siteHeader.is-scrolled{height:68px;box-shadow:0 10px 30px #071a2d16;background:#fffffff5;backdrop-filter:blur(12px)}
+.heroContent>*{opacity:0;transform:translateY(24px);animation:heroReveal .8s cubic-bezier(.2,.7,.2,1) forwards}
+.heroContent>:nth-child(1){animation-delay:.1s}.heroContent>:nth-child(2){animation-delay:.22s}.heroContent>:nth-child(3){animation-delay:.36s}.heroContent>:nth-child(4){animation-delay:.5s}
+.heroPanel{opacity:0;transform:translateX(25px);animation:panelReveal .9s .55s cubic-bezier(.2,.7,.2,1) forwards}
+.serviceCard{transition:transform .35s ease,background .35s ease,color .35s ease,box-shadow .35s ease}
+.serviceCard:hover{transform:translateY(-8px);box-shadow:0 18px 36px #071a2d22;z-index:2}
+.project{background-size:110%;transition:background-size .8s cubic-bezier(.2,.7,.2,1),transform .45s ease,box-shadow .45s ease}
+.project:hover{background-size:120%;transform:translateY(-6px);box-shadow:0 20px 38px #071a2d35}
+.project figcaption{transition:transform .45s ease}.project:hover figcaption{transform:translateY(-7px)}
+.whatsappFloat{animation:whatsappPulse 2.8s ease-in-out infinite}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1)}
+.reveal.is-visible{opacity:1;transform:none}.serviceCard.reveal,.stepGrid article.reveal,.project.reveal{transition-delay:var(--delay,0ms)}
+@keyframes heroReveal{to{opacity:1;transform:none}}@keyframes panelReveal{to{opacity:1;transform:none}}@keyframes whatsappPulse{0%,75%,100%{box-shadow:0 8px 30px #0005,0 0 0 0 #25d36655}85%{box-shadow:0 8px 30px #0005,0 0 0 13px #25d36600}}
+@media(prefers-reduced-motion:reduce){.reveal,.heroContent>*,.heroPanel{opacity:1!important;transform:none!important;animation:none!important}}
